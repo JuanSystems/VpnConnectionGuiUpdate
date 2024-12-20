@@ -2,18 +2,18 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "VpnConnectionGui"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "All Systems, Inc."
 #define MyAppURL "https://youtu.be/9keyn5upzy8?si=j1NBVOmyN-UyaXOx"
-#define MyAppExeName "init.bat"
+#define MyAppExeName "init.exe"
 #define MyAppAssocName MyAppName + " File"
-#define MyAppAssocExt ".bat"
+#define MyAppAssocExt ".exe"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{73DA5192-DA40-4A00-8497-C53593FB42BB}
+AppId={{73DA5192-DA40-4A00-8497-C53593FB48BB}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -36,7 +36,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\Juan David\Desktop
 OutputBaseFilename=VpnConnectionGui
-SetupIconFile=C:\Users\Juan David\Desktop\VpnConnectionGui\ccomputer.ico
+SetupIconFile=C:\Users\Juan David\Desktop\VpnConnectionGui\unnamed2-removebg-preview.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -66,9 +66,9 @@ Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; Value
 Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\ccomputer.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\ccomputer.ico"; Tasks: desktopicon
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\ccomputer.ico"
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"; Tasks: desktopicon
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"
 
 
 [Run]
