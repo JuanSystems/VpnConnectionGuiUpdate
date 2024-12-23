@@ -1,6 +1,6 @@
 {
-  "version": "1.0.4",
-  "versionlibraries":"1.0.0",
+  "version": "1.0.5",
+  "versionlibraries":"1.0.2",
   "versionExecutables":"1.0.1",
   "versionExecutablesInit":"1.0.1",
   "jar": {
