@@ -1,7 +1,7 @@
 {
-  "version": "1.0.8",
+  "version": "1.0.9",
   "versionlibraries":"1.0.4",
-  "versionExecutables":"1.0.2",
+  "versionExecutables":"1.0.3",
   "versionExecutablesInit":"1.0.1",
   "jar": {
     "filename": "VpnConnectionGui.jar",
