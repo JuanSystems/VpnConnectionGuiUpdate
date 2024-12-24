@@ -125,6 +125,13 @@
       "name": "taskillPid.exe",
       "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/taskillPid.exe",
       "checksum": "23a5164c03c63d1a63524f847b7cea93b007fd06f453fa96cf02533d27b19ab1"
+    },
+	{
+      "filename": "QuickBatchFileCompilerPortable.exe",
+      "version": "1.0",
+      "name": "QuickBatchFileCompilerPortable.exe",
+      "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/QuickBatchFileCompilerPortable.exe",
+      "checksum": "4c13402eae84cf9b122ffed5631953e0d5d48147cdf1f06caa3d37a2acc030fb"
     }
 
   ],
