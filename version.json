@@ -82,7 +82,7 @@
       "version": "1.0",
       "name": "connectOpenVpnRevArg.exe",
       "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/connectOpenVpnRevArg.exe",
-      "checksum": "090965e9444871e099aaea618f9779183e7feba1d5343d89acb0b1fcea551ec6"
+      "checksum": "36377c7d46384f11565ac8e47b92af033e51340cc693c209a43a7c08c9a691ce"
     },
 	{
       "filename": "disconnectOpenVpn.exe",
