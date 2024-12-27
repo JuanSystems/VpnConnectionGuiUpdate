@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "versionlibraries":"1.0.4",
   "versionExecutables":"1.0.3",
   "versionExecutablesInit":"1.0.1",
@@ -7,7 +7,7 @@
     "filename": "VpnConnectionGui.jar",
     "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/VpnConnectionGui.jar",
 	"urljson":"https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/version.json",
-    "checksum": "a6eba50b58c2cf5e9804679ed0204d716e5ab3d988ea37e34de0e79e8850c107"
+    "checksum": "bd157fcc2f4a12be5fd97b0c1906bb55e6edaeb297a9e81dbdf25421c2ee6a3f"
   },
   "libraries": [
     {
@@ -82,7 +82,7 @@
       "version": "1.0",
       "name": "connectOpenVpnRevArg.exe",
       "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/connectOpenVpnRevArg.exe",
-      "checksum": "6b95adf1121d6136c8626d894c690b4ca65f60c6f951774ff7ba2ecbeb14ce9d"
+      "checksum": "090965e9444871e099aaea618f9779183e7feba1d5343d89acb0b1fcea551ec6"
     },
 	{
       "filename": "disconnectOpenVpn.exe",

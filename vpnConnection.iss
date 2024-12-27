@@ -57,6 +57,8 @@ Source: "{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Juan David\Desktop\VpnConnectionGui\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
+; Agregar el instalador de PostgreSQL al paquete  
+Source: "C:\Users\Juan David\Desktop\VpnConnectionGui\OpenVPN-2.6.12-I001-amd64.msi"; DestDir: "{tmp}"; Flags: ignoreversion
 
 [Registry]
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
@@ -70,8 +72,8 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFile
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"; Tasks: desktopicon
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"
 
-
 [Run]
+Filename: "msiexec"; Parameters: "/i ""{tmp}\OpenVPN-2.6.12-I001-amd64.msi"" ADDLOCAL=Drivers.TAPWindows6,Drivers,Drivers.Wintun,Drivers.OvpnDco INSTALLDIR=""C:\openvpn"" /quiet /norestart"; Flags: runhidden waituntilterminated;
 ; Ejecutar el programa principal de la app
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent;
 
