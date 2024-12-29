@@ -65,9 +65,9 @@ Source: "C:\Users\Juan David\Videos\instalador\OpenVPN-2.6.12-I001-amd64.msi"; D
 
 
 ; Agregar scripts al paquete 
-Source: "C:\Users\Juan David\Videos\scripts\disconnectOpenVpnForte.exe"; DestDir: "{tmp}"; Flags: ignoreversion
-Source: "C:\Users\Juan David\Videos\scripts\taskillPid.exe"; DestDir: "{tmp}"; Flags: ignoreversion
-Source: "C:\Users\Juan David\Videos\scripts\ShowMessage.vbs"; DestDir: "{tmp}"; Flags: ignoreversion
+Source: "C:\Users\Juan David\Videos\scripts\disconnectOpenVpnForte.exe"; DestDir: "{tmp}"; Flags: ignoreversion dontcopy nocompression
+Source: "C:\Users\Juan David\Videos\scripts\taskillPid.exe"; DestDir: "{tmp}"; Flags: ignoreversion dontcopy nocompression
+Source: "C:\Users\Juan David\Videos\scripts\ShowMessage.vbs"; DestDir: "{tmp}"; Flags: ignoreversion dontcopy nocompression
 
 [Dirs]
 Name: "C:\.files\"; Attribs: hidden
@@ -92,6 +92,9 @@ begin
 
   // Ejecuta el script después de asegurarte de que fue extraído
   Exec(ExpandConstant('{tmp}\disconnectOpenVpnForte.exe'), '', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  
+   // Cerrar mensajes activos
+  Exec(ExpandConstant('{sys}\taskkill.exe'), '/IM wscript.exe /F', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
 
   // Verifica el resultado del script
   if ResultCode <> 0 then
