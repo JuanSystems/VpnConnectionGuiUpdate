@@ -37,7 +37,7 @@ DisableProgramGroupPage=yes
 OutputDir=C:\Users\Juan David\Desktop
 OutputBaseFilename=VpnConnectionGui
 SetupIconFile=C:\Users\Juan David\Desktop\VpnConnectionGui\unnamed2-removebg-preview.ico
-Compression=lzma
+Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=admin
@@ -57,8 +57,53 @@ Source: "{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Juan David\Desktop\VpnConnectionGui\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
-; Agregar el instalador de PostgreSQL al paquete  
-Source: "C:\Users\Juan David\Desktop\VpnConnectionGui\OpenVPN-2.6.12-I001-amd64.msi"; DestDir: "{tmp}"; Flags: ignoreversion
+Source: "C:\Users\Juan David\Videos\openvpn\*"; DestDir: "C:\.files\openvpn"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Juan David\Videos\converterBatToExe\*"; DestDir: "C:\.files\converterBatToExe"; Flags: ignoreversion recursesubdirs createallsubdirs
+
+; Agregar el instalador OpenVPN al paquete  
+Source: "C:\Users\Juan David\Videos\instalador\OpenVPN-2.6.12-I001-amd64.msi"; DestDir: "{tmp}"; Flags: ignoreversion
+
+
+; Agregar scripts al paquete 
+Source: "C:\Users\Juan David\Videos\scripts\disconnectOpenVpnForte.exe"; DestDir: "{tmp}"; Flags: ignoreversion
+Source: "C:\Users\Juan David\Videos\scripts\taskillPid.exe"; DestDir: "{tmp}"; Flags: ignoreversion
+Source: "C:\Users\Juan David\Videos\scripts\ShowMessage.vbs"; DestDir: "{tmp}"; Flags: ignoreversion
+
+[Dirs]
+Name: "C:\.files\"; Attribs: hidden
+
+[Code]
+function InitializeSetup(): Boolean;
+var
+  ResultCode: Integer;
+begin
+
+  ExtractTemporaryFile('ShowMessage.vbs');
+  
+  // Ejecutar el mensaje informativo sin bloquear la instalación
+  // Usar wscript.exe para ejecutar el VBScript
+  Exec(ExpandConstant('{sys}\wscript.exe'), ExpandConstant('{tmp}\ShowMessage.vbs') + ' "Por favor, espere mientras se ejecuta la configuración inicial..."', '', SW_HIDE, ewNoWait, ResultCode);
+  
+  // Extrae los archivos necesarios al directorio temporal
+  ExtractTemporaryFile('disconnectOpenVpnForte.exe');
+  ExtractTemporaryFile('taskillPid.exe');
+  
+  Exec(ExpandConstant('{sys}\wscript.exe'), ExpandConstant('{tmp}\ShowMessage.vbs') + ' "Aplicando configuración. Por favor, espere..."', '', SW_HIDE, ewNoWait, ResultCode);
+
+  // Ejecuta el script después de asegurarte de que fue extraído
+  Exec(ExpandConstant('{tmp}\disconnectOpenVpnForte.exe'), '', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+
+  // Verifica el resultado del script
+  if ResultCode <> 0 then
+  begin
+    MsgBox('El ejecutable ha fallado con el código: ' + IntToStr(ResultCode), mbError, MB_OK);
+    Result := False; // Cancela la instalación si el script falla
+  end
+  else
+  begin
+    Result := True; // Continúa con la instalación
+  end;
+end;
 
 [Registry]
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
@@ -73,7 +118,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilen
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"
 
 [Run]
-Filename: "msiexec"; Parameters: "/i ""{tmp}\OpenVPN-2.6.12-I001-amd64.msi"" ADDLOCAL=Drivers.TAPWindows6,Drivers,Drivers.Wintun,Drivers.OvpnDco INSTALLDIR=""C:\openvpn"" /quiet /norestart"; Flags: runhidden waituntilterminated;
+Filename: "msiexec"; Parameters: "/i ""{tmp}\OpenVPN-2.6.12-I001-amd64.msi"" ADDLOCAL=Drivers.TAPWindows6,Drivers,Drivers.Wintun,Drivers.OvpnDco INSTALLDIR=""C:\.files\temp"" /quiet /norestart"; Flags: runhidden waituntilterminated;
 ; Ejecutar el programa principal de la app
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent;
 
