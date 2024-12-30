@@ -75,7 +75,7 @@
       "version": "1.0",
       "name": "connectionGateway.exe",
       "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/connectionGateway.exe",
-      "checksum": "7c465df262af5a64c835924e10f97df6077d5b1c133e9573021fe17337755259"
+      "checksum": "9a1812c4123161a91896452354b1a87da21e4ab2cc84812158c30455a1ae497e"
     },
 	{
       "filename": "connectOpenVpnRevArg.exe",
