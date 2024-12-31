@@ -76,6 +76,7 @@ Name: "{app}\.credentials"; Attribs: hidden
 [Code]
 function InitializeSetup(): Boolean;
 var
+  ResultCodeOne: Integer;
   ResultCode: Integer;
 begin
 
@@ -92,15 +93,15 @@ begin
   Exec(ExpandConstant('{sys}\wscript.exe'), ExpandConstant('{tmp}\ShowMessage.vbs') + ' "Aplicando configuración. Por favor, espere..."', '', SW_HIDE, ewNoWait, ResultCode);
 
   // Ejecuta el script después de asegurarte de que fue extraído
-  Exec(ExpandConstant('{tmp}\disconnectOpenVpnForte.exe'), '', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  Exec(ExpandConstant('{tmp}\disconnectOpenVpnForte.exe'), '', '', SW_HIDE, ewWaitUntilTerminated, ResultCodeOne);
   
    // Cerrar mensajes activos
   Exec(ExpandConstant('{sys}\taskkill.exe'), '/IM wscript.exe /F', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
 
   // Verifica el resultado del script
-  if ResultCode <> 0 then
+  if ResultCodeOne <> 0 then
   begin
-    MsgBox('El ejecutable ha fallado con el código: ' + IntToStr(ResultCode), mbError, MB_OK);
+    MsgBox('El ejecutable ha fallado con el código: ' + IntToStr(ResultCodeOne), mbError, MB_OK);
     Result := False; // Cancela la instalación si el script falla
   end
   else

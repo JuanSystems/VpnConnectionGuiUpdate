@@ -1,5 +1,5 @@
 {
-  "version": "1.1.7",
+  "version": "1.1.9",
   "versionlibraries":"1.0.4",
   "versionExecutables":"1.0.5",
   "versionExecutablesInit":"1.0.1",
@@ -7,7 +7,7 @@
     "filename": "VpnConnectionGui.jar",
     "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/VpnConnectionGui.jar",
 	"urljson":"https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/version.json",
-    "checksum": "b2687dd32433dba48a4b826ae3aedb64bedb820a02701c4e38719e5cbfb43792"
+    "checksum": "f1183b9d851dac9c4b31df6e0394461562142026f1402980d3cfe926e44c31f5"
   },
   "libraries": [
     {
