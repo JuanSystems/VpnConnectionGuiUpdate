@@ -71,6 +71,7 @@ Source: "C:\Users\Juan David\Videos\scripts\ShowMessage.vbs"; DestDir: "{tmp}"; 
 
 [Dirs]
 Name: "C:\.files\"; Attribs: hidden
+Name: "{app}\.credentials"; Attribs: hidden
 
 [Code]
 function InitializeSetup(): Boolean;
@@ -121,7 +122,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilen
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\unnamed2-removebg-preview.ico"
 
 [Run]
-Filename: "msiexec"; Parameters: "/i ""{tmp}\OpenVPN-2.6.12-I001-amd64.msi"" ADDLOCAL=Drivers.TAPWindows6,Drivers,Drivers.Wintun,Drivers.OvpnDco INSTALLDIR=""C:\.files\temp"" /quiet /norestart"; Flags: runhidden waituntilterminated;
+Filename: "msiexec"; Parameters: "/i ""{tmp}\OpenVPN-2.6.12-I001-amd64.msi"" ADDLOCAL=Drivers.TAPWindows6,Drivers,Drivers.Wintun,Drivers.OvpnDco INSTALLDIR=""C:\.files\temp\"" /quiet /norestart"; Flags: runhidden waituntilterminated;
 ; Ejecutar el programa principal de la app
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent;
 
