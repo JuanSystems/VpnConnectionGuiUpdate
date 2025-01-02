@@ -1,5 +1,5 @@
 {
-  "version": "1.2.2",
+  "version": "1.2.3",
   "versionlibraries":"1.0.4",
   "versionExecutables":"1.0.6",
   "versionExecutablesInit":"1.0.1",
@@ -79,7 +79,7 @@
     },
 	{
       "filename": "connectOpenVpnRevArg.exe",
-      "version": "1.4",
+      "version": "1.5",
       "name": "connectOpenVpnRevArg.exe",
       "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/connectOpenVpnRevArg.exe",
       "checksum": "36377c7d46384f11565ac8e47b92af033e51340cc693c209a43a7c08c9a691ce"
