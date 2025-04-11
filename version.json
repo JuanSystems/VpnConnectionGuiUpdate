@@ -142,10 +142,10 @@
     },
     {
       "filename": "launchAppInSession.exe",
-      "version": "1.0",
+      "version": "1.1",
       "name": "launchAppInSession.exe",
       "url": "https://github.com/JuanSystems/VpnConnectionGuiUpdate/raw/main/scriptVpn/launchAppInSession.exe",
-      "checksum": "619fb4ff5cce30371b7fcda19c2d39429fad6e7dc0385c406b33b5609ba0f738"
+      "checksum": "01f430bee6fa8e75cd4726dd34204ba16ca218f564a82fcb637394026c1188d0"
     },
 	{
       "filename": "PsExec.exe",
